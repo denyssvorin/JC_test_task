@@ -10,14 +10,12 @@ import retrofit2.http.Query
 interface UserApi {
 
     @GET("users")
-    @Headers("Authorization: token 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")
     suspend fun getUsers(
         @Query("since") sinceId: Int,
         @Query("per_page") pageCount: Int
     ): List<UserApiEntity>
 
     @GET("users/{login}/repos")
-    @Headers("Authorization: token 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")
     suspend fun getUserRepos(
         @Path("login") userLogin: String,
         @Query("per_page") pageCount: Int,
